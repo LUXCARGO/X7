@@ -1,20 +1,20 @@
-const fileId = "1hExrDfWzO5RXb9Vg_wXORJgg3Nh1IjSLLsKkSvLS7Wo"; // ← вставь свой ID из Google Диска
+const fileId = "1hExrDfWzO5RXb9Vg_wXORJgg3Nh1IjSLLsKkSvLS7Wo";
+const url = `https://docs.google.com/spreadsheets/d/${fileId}/export?format=xlsx`;
 
 let data = [];
 
 window.onload = () => {
-  const url = `https://drive.google.com/uc?export=download&id=${fileId}`;
   fetch(url)
     .then(res => res.arrayBuffer())
     .then(buffer => {
       const workbook = XLSX.read(buffer, { type: 'array' });
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
       data = XLSX.utils.sheet_to_json(sheet);
-      alert("Файл с Google Диска загружен. Можешь искать трек-коды.");
+      alert("Файл с Google Таблицы загружен. Можешь искать трек-коды.");
     })
     .catch(err => {
       console.error("Ошибка загрузки:", err);
-      alert("Не удалось загрузить файл. Проверь ID или доступность файла.");
+      alert("Не удалось загрузить файл. Проверь доступ или ID.");
     });
 };
 
