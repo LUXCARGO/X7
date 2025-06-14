@@ -1,5 +1,4 @@
-const fileId = "1hExrDfWzO5RXb9Vg_wXORJgg3Nh1IjSLLsKkSvLS7Wo";
-const url = `https://docs.google.com/spreadsheets/d/${fileId}/export?format=xlsx`;
+const url = "https://drive.google.com/uc?export=download&id=167Fr6Bzh2pE_bDxiLSXh_hMYmPO7fMHx";
 
 let data = [];
 
@@ -10,11 +9,11 @@ window.onload = () => {
       const workbook = XLSX.read(buffer, { type: 'array' });
       const sheet = workbook.Sheets[workbook.SheetNames[0]];
       data = XLSX.utils.sheet_to_json(sheet);
-      alert("Файл с Google Таблицы загружен. Можешь искать трек-коды.");
+      alert("Файл Excel загружен. Можешь искать трек-коды.");
     })
     .catch(err => {
-      console.error("Ошибка загрузки:", err);
-      alert("Не удалось загрузить файл. Проверь доступ или ID.");
+      console.error("Ошибка загрузки файла:", err);
+      alert("Не удалось загрузить Excel-файл. Проверь доступ.");
     });
 };
 
