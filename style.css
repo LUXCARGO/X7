@@ -1,0 +1,15 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 30px;
+}
+input, button {
+  padding: 10px;
+  margin: 10px 0;
+}
+#result {
+  margin-top: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+}
